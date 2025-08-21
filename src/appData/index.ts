@@ -53,7 +53,7 @@ export const projects = [
     priority: 4,
     title: 'Ejucationzz',
     shortDescription:
-      'Ejucationzz is a directory site I created for myself using Next.js. On Ejucationzz, you can find free and paid online and offline courses available in Pakistan. 14 academies and 12 main categories, each with subcategories, have been listed. Ejucationzz is a directory site I created for myself using Next.js. On Ejucationzz, you can find free and paid online and offline courses available in Pakistan. 14 academies and 12 main categories, each with subcategories, have been listed.',
+      'Ejucationzz is a directory site I created for myself using Next.js. On Ejucationzz, you can find free and paid online and offline courses available in Canada. 14 academies and 12 main categories, each with subcategories, have been listed. Ejucationzz is a directory site I created for myself using Next.js. On Ejucationzz, you can find free and paid online and offline courses available in Canada. 14 academies and 12 main categories, each with subcategories, have been listed.',
     cover:
       'https://images.unsplash.com/photo-1527334919515-b8dee906a34b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     type: 'New 🔥',
@@ -138,7 +138,7 @@ export const skillList = [
 export const footerLinks = [
   { title: 'About', href: '#' },
   { title: 'Projects', href: '#projects' },
-  { title: 'Testimonials', href: '#testimonials' },
+  { title: 'Experience', href: '#Experience & Skills' },
   {
     title: 'Blogs',
     href: '#blogs',

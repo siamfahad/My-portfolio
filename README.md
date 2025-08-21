@@ -4,7 +4,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 
-[![Premium Version](https://img.shields.io/badge/PREMIUM_%20VERSION-AVAILABLE-%2300C7B7?style=for-the-badge&logo=stellar&logoColor=white)](https://basit313.gumroad.com/l/nextjs-developer-portfolio-template)
+[![Premium Version](https://img.shields.io/badge/PREMIUM_%20VERSION-AVAILABLE-%2300C7B7?style=for-the-badge&logo=stellar&logoColor=white)](https://313.gumroad.com/l/nextjs-developer-portfolio-template)
 
 ✨ **Professional Portfolio Template** built with Next.js 15 • 🚀 Tailwind V4 • 📱 Fully Responsive • 🎨 Modern Design • 🔍 SEO Friendly
 
@@ -67,7 +67,7 @@ This ensures proper configuration of environment variables.
 
 1. Navbar
    - File: navbar.tsx
-     - Update the navbar name from john_doe to your name.
+     - Update the navbar name from Fahad_hasan_Siam to your name.
 2. Hero Section
    - File: hero.tsx
      - Edit the title, description, and optionally, replace the SVG with your image.
@@ -127,27 +127,6 @@ We use Tailwind CSS for styling. In `global.css`, you can customize theme variab
    - Alternatively, edit `opengraph-image.tsx` to generate images dynamically.
 
 ### If you find this template helpful, don't forget to ⭐️ the repo!
-
-## 💎 Upgrade to Premium
-
-✨ **Premium Features Include:**
-
-In premium template you will get one extra feature
-
-- 📝 MDX Blog System with code snippets
-
-[Get Premium Version](https://basit313.gumroad.com/l/nextjs-developer-portfolio-template) | [View Premium Demo](https://nextjs-dev-portfolio.netlify.app/)
-
-## 🆓 vs 💎 Premium
-
-| **Feature**       | **Free Version** | **Premium Version** |
-| ----------------- | ---------------- | ------------------- |
-| Blog System (MDX) | ❌               | ✅ Full Integration |
-| UI Components     | 20               | 25+                 |
-| Email Support     | ✅               | ✅ Priority         |
-
-![footer section](https://ik.imagekit.io/cpnw7c0xpe/Tailwind%20Components/Templates/flexy-dev-footer.png?updatedAt=1741813601842)
-
 ## Analytics
 
 You can integrate analytics easily:
@@ -159,8 +138,8 @@ You can integrate analytics easily:
 
 Before deploying, add environment variables from .env.local wherever you are deploying:
 
-1. NEXT_PUBLIC_SITE_URL: Set to your actual site URL (e.g., https://johndoe.com).
+1. NEXT_PUBLIC_SITE_URL: Set to your actual site URL (e.g., https://fahadhasansiam.com).
 1. CONTACT_FORM_ACTION_URL: Your [formspree](https://formspree.io/) url.
 1. For local development, use the localhost URL.
 
-For any query or suggestion, I am available on [LinkedIn](https://www.linkedin.com/in/abdulbasitprofile/) or email me at basit@codevertiser.com
+For any query or suggestion, I am available on [LinkedIn](https://www.linkedin.com/in/fahadsiam/) or email me at siamfahad58@gmail.com

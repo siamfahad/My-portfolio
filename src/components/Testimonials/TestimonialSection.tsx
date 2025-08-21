@@ -15,8 +15,8 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ testimonials })
   return (
     <section id="testimonials">
       <SectionHeading
-        title="// Testimonials"
-        subtitle="Don't just take our word for it - see what actual users of our service have to say about their experience."
+        title="Experience & Skills"
+        subtitle="Brains, skills, and a bit of hustle"
       />
 
       <div className="hide-scrollbar my-8 flex gap-8 overflow-x-auto">

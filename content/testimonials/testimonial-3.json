@@ -1,8 +1,15 @@
 {
-  "name": "John Doe",
-  "title": "CEO",
-  "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien egestas fermentum eget auctor justo. Nullam sit amet nunc nec purus tincidunt aliquam. Nullam sit amet nunc nec purus tincidunt aliquam.",
-  "image": "https://i.pravatar.cc/150?img=12",
-  "stars": 4,
+  "name": "MicroDeft",
+  "title": "Internship",
+"feedback": "Analyzed business requirements to design scalable software architectures, ensuring the solutions could grow with evolving needs. I developed secure front-end and back-end systems using React, Python, and Django, while managing databases such as PostgreSQL and MongoDB with a focus on optimizing performance. My role also involved conducting testing, deployment, and ongoing maintenance for enterprise applications. Additionally, I collaborated within agile teams to deliver customized software solutions tailored to client goals.",
+  "image": "https://microdeft.com/wp-content/uploads/2021/11/MicroDeft-Final-Logo-Web-e1652294952436.png",
+  "skills": [
+    "ReactJS",
+    "Python",
+    "Django",
+    "PostgreSQL",
+    "MongoDB"
+  ],
+  "link": "https://microdeft.com/",
   "createdAt": "2025-01-01"
 }

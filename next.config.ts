@@ -1,8 +1,6 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-
   images: {
     remotePatterns: [
       {
@@ -28,6 +26,15 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'i.pravatar.cc',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      // You can add the new hostname here
+      {
+        protocol: 'https',
+        hostname: 'microdeft.com',
       },
     ],
   },

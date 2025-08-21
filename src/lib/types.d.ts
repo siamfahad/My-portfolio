@@ -21,10 +21,12 @@ export interface Heading {
 }
 
 export interface Testimonial {
-  name: string
-  title?: string
-  feedback: string
-  image: string
-  stars: number
-  createdAt: string
+  name: string;
+  title?: string;
+  feedback: string;
+  image: string;
+  stars: number;
+  skills?: string[];
+  link?: string; // Add this line
+  createdAt: string;
 }

@@ -1,8 +1,15 @@
 {
-  "name": "John Doe",
-  "title": "CEO",
-  "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien egestas fermentum eget auctor justo.",
-  "image": "https://i.pravatar.cc/150?img=12",
-  "stars": 5,
+  "name": "Baldini Restaurant",
+  "title": "Line-Cook",
+  "feedback": "Responsible for preparing a variety of dishes including pizzas, salads, and baked goods. My work included food preparation, cooking, and ensuring the quality of all food items.",
+  "image": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrLwyjg_f8r5lpjTH_0f9C7GdgQAirCyUIiW0JzqOCdOsHf1dBUybmAhK9cFfjZxqik0-WLecGEy74WHGt4LOmVh4agcE5ppog2PLP7V1JKqX3vYqNZcIkCWKiNJLyzy5g-JkFk=s1360-w1360-h1020-rw",
+  "skills": [
+    "Pizza",
+    "Salads",
+    "Baking",
+    "Cooking",
+    "Food Preparation"
+  ],
+  "link": "https://www.yelp.ca/biz/baldini-restaurant-toronto",
   "createdAt": "2025-01-01"
 }

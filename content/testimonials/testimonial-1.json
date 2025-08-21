@@ -1,8 +1,14 @@
 {
-  "name": "John Doe",
-  "title": "CEO",
-  "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien egestas fermentum eget auctor justo. Nullam sit amet nunc nec purus tincidunt aliquam. Nullam sit amet nunc nec purus tincidunt aliquam.",
-  "image": "https://i.pravatar.cc/150?img=12",
-  "stars": 3,
-  "createdAt": "2025-01-01"
+    "name": "Wright Custom Cabinetry & Construction INC",
+    "title": "Woodworking & CNC Operator",
+    "feedback": "Responsible for creating high-quality custom cabinetry and furniture by operating machines for precise cutting and finishing. Design and prepare custom layouts, transferring files daily for production. Participate in assembly, installation, and on-site construction tasks to ensure accurate and efficient project completion.",
+    "image": "https://lh3.googleusercontent.com/p/AF1QipP-mfuXMUQSvv5tsxslSubjxN4aZOK0tmvaz-k1=w243-h203-n-k-no-nu",
+    "skills": [
+      "CNC Operation",
+      "Edge-Banding Machinery",
+      "Custom design layouts",
+      "Wood assembly and construction"
+    ],
+    "link": "https://wrightccinc.com/",
+    "createdAt": "2025-01-01"
 }

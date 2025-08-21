@@ -1,8 +1,17 @@
-import { footerLinks, languages } from '@/appData'
-import { socials } from '@/appData/personal'
-import Logo from '../Navbar/Logo'
+import { footerLinks, languages } from '@/appData';
+import Logo from '../Navbar/Logo';
+import { FaFacebook, FaLinkedin, FaWhatsapp, FaInstagram, FaTwitter, FaSnapchatGhost } from 'react-icons/fa';
 
 const Footer = () => {
+  const socialLinks = [
+    { name: 'LinkedIn', icon: <FaLinkedin size={24} />, url: 'https://www.linkedin.com/in/fahadsiam' },
+    { name: 'WhatsApp', icon: <FaWhatsapp size={24} />, url: 'https://wa.me/17803640343' },
+    { name: 'X', icon: <FaTwitter size={24} />, url: 'https://x.com/siamfahad58?s=21' },
+    { name: 'Facebook', icon: <FaFacebook size={24} />, url: 'https://www.facebook.com/share/1ZQ83Vf7CA/?mibextid=wwXIfr' },
+    { name: 'Instagram', icon: <FaInstagram size={24} />, url: 'https://www.instagram.com/fahad__._.__?igsh=d3c1MW5jZXAzcG55&utm_source=qr' },
+    { name: 'Snapchat', icon: <FaSnapchatGhost size={24} />, url: 'https://t.snapchat.com/Obd4aGwG' },
+  ];
+
   return (
     <footer className="bg-secondary relative flex min-h-[560px] flex-col justify-between gap-20 overflow-hidden px-4 py-14 md:p-14">
       <div className="relative z-20 grid grid-cols-1 items-start gap-20 md:grid-cols-2 md:gap-12">
@@ -18,7 +27,7 @@ const Footer = () => {
           <a
             href="#"
             className="text-neutral mt-4 inline-flex items-center gap-2 text-xs hover:underline">
-            More about us <span className="bg-neutral inline-block size-[10px] rounded-full" />
+            More about Me <span className="bg-neutral inline-block size-[10px] rounded-full" />
           </a>
         </div>
 
@@ -37,10 +46,13 @@ const Footer = () => {
       <div className="relative z-20 flex flex-col-reverse gap-20 md:grid md:grid-cols-2 md:gap-12">
         <div className="grid grid-cols-2 gap-4">
           <ul className="flex flex-col gap-4">
-            {socials.map((item, index) => (
+            {socialLinks.map((item, index) => (
               <li key={index} className="cursor-pointer bg-transparent">
                 <a
-                  href={item.href}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Link to ${item.name}`}
                   className="text-neutral transition-color hover:text-neutral/50 h-full w-full duration-300">
                   {item.icon}
                 </a>
@@ -56,24 +68,24 @@ const Footer = () => {
         <div className="flex flex-col justify-between gap-[200px] md:flex-row md:gap-8">
           <div className="space-y-10 md:self-end">
             <div className="flex flex-col">
-              <h5 className="text-neutral mb-4 text-lg font-medium">Contact Us</h5>
+              <h5 className="text-neutral mb-4 text-lg font-medium">Contact Me</h5>
               <a
-                href="mailto:johndoe@gmail.com"
+                href="mailto:siamfahad58@gmail.com"
                 className="text-tertiary-content hover:text-neutral text-sm font-light transition-colors duration-300">
-                johndoe@gmail.com
+                siamfahad58@gmail.com
               </a>
               <a
-                href="tel:+92 3123456789"
+                href="tel:+1(780)364-0343"
                 className="text-tertiary-content hover:text-neutral text-sm font-light transition-colors duration-300">
-                +92 3123456789
+                +1(780)364-0343
               </a>
             </div>
             <div>
               <div>
                 <h5 className="text-neutral mb-4 text-lg font-medium">Location</h5>
                 <address className="text-tertiary-content flex flex-col text-sm font-light">
-                  <span>123456, Pakistan</span>
-                  <span>Karachi 22/5/8, Office 4</span>
+                  <span>Toronto,ON</span>
+                  <span>Canada</span>
                 </address>
               </div>
             </div>
@@ -100,7 +112,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
