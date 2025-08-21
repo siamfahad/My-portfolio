@@ -2,9 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-// ----------------------
-// Prop Types
-// ----------------------
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
@@ -20,9 +17,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isPending: boolean;
 }
 
-// ----------------------
-// Input Component
-// ----------------------
 const Input: React.FC<InputProps> = ({ label, id, ...props }) => (
   <div className="mb-4 font-mono">
     <label htmlFor={id} className="block text-sm font-medium text-green-500 mb-1">
@@ -40,9 +34,6 @@ const Input: React.FC<InputProps> = ({ label, id, ...props }) => (
   </div>
 );
 
-// ----------------------
-// Textarea Component
-// ----------------------
 const Textarea: React.FC<TextareaProps> = ({ label, id, ...props }) => (
   <div className="mb-4 font-mono">
     <label htmlFor={id} className="block text-sm font-medium text-green-500 mb-1">
@@ -60,9 +51,6 @@ const Textarea: React.FC<TextareaProps> = ({ label, id, ...props }) => (
   </div>
 );
 
-// ----------------------
-// Button Component
-// ----------------------
 const Button: React.FC<ButtonProps> = ({ text, isPending, ...props }) => {
   const [animatedText, setAnimatedText] = useState('');
   const animationRef = useRef<NodeJS.Timeout | null>(null);
@@ -89,9 +77,7 @@ const Button: React.FC<ButtonProps> = ({ text, isPending, ...props }) => {
     }
 
     return () => {
-      if (animationRef.current) {
-        clearInterval(animationRef.current);
-      }
+      if (animationRef.current) clearInterval(animationRef.current);
     };
   }, [isPending]);
 
@@ -108,9 +94,6 @@ const Button: React.FC<ButtonProps> = ({ text, isPending, ...props }) => {
   );
 };
 
-// ----------------------
-// Contact Form
-// ----------------------
 const ContactForm: React.FC = () => {
   const [isPending, setIsPending] = useState(false);
   const [status, setStatus] = useState<{ success: boolean; message: string } | null>(null);
@@ -151,7 +134,7 @@ const ContactForm: React.FC = () => {
 
   // Matrix Rain Effect
   useEffect(() => {
-    let animationFrameId: number;
+    let animationFrameId: number | null = null; // make nullable
 
     if (isPending && canvasRef.current) {
       setShowSubmissionEffect(true);
@@ -187,12 +170,14 @@ const ContactForm: React.FC = () => {
       };
 
       animate();
-    } else {
+    } else if (animationFrameId !== null) {
       cancelAnimationFrame(animationFrameId);
       setShowSubmissionEffect(false);
     }
 
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => {
+      if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
+    };
   }, [isPending]);
 
   useEffect(() => {
