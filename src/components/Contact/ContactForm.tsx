@@ -2,8 +2,28 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-// --- Mock Components for the Form (for demonstration purposes) ---
-const Input = ({ label, id, ...props }) => (
+// ----------------------
+// Prop Types
+// ----------------------
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  id: string;
+}
+
+interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string;
+  id: string;
+}
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+  isPending: boolean;
+}
+
+// ----------------------
+// Input Component
+// ----------------------
+const Input: React.FC<InputProps> = ({ label, id, ...props }) => (
   <div className="mb-4 font-mono">
     <label htmlFor={id} className="block text-sm font-medium text-green-500 mb-1">
       {label}
@@ -20,7 +40,10 @@ const Input = ({ label, id, ...props }) => (
   </div>
 );
 
-const Textarea = ({ label, id, ...props }) => (
+// ----------------------
+// Textarea Component
+// ----------------------
+const Textarea: React.FC<TextareaProps> = ({ label, id, ...props }) => (
   <div className="mb-4 font-mono">
     <label htmlFor={id} className="block text-sm font-medium text-green-500 mb-1">
       {label}
@@ -37,9 +60,12 @@ const Textarea = ({ label, id, ...props }) => (
   </div>
 );
 
-const Button = ({ text, isPending, ...props }) => {
+// ----------------------
+// Button Component
+// ----------------------
+const Button: React.FC<ButtonProps> = ({ text, isPending, ...props }) => {
   const [animatedText, setAnimatedText] = useState('');
-  const animationRef = useRef(null);
+  const animationRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isPending) {
@@ -49,12 +75,12 @@ const Button = ({ text, isPending, ...props }) => {
 
       animationRef.current = setInterval(() => {
         if (charIndex >= fullText.length) {
-          clearInterval(animationRef.current);
+          if (animationRef.current) clearInterval(animationRef.current);
           return;
         }
         setAnimatedText(fullText.slice(0, charIndex + 1));
         charIndex++;
-      }, 75); // Fast typing speed
+      }, 75);
     } else {
       if (animationRef.current) {
         clearInterval(animationRef.current);
@@ -82,56 +108,62 @@ const Button = ({ text, isPending, ...props }) => {
   );
 };
 
-const ContactForm = () => {
+// ----------------------
+// Contact Form
+// ----------------------
+const ContactForm: React.FC = () => {
   const [isPending, setIsPending] = useState(false);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState<{ success: boolean; message: string } | null>(null);
   const [showSubmissionEffect, setShowSubmissionEffect] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevents a full page reload
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsPending(true);
     setStatus(null);
 
-    const formData = new FormData(event.target);
-    const formUrl = "https://formspree.io/f/meozbdoy"; // Your Formspree URL
+    const formData = new FormData(event.currentTarget);
+    const formUrl = 'https://formspree.io/f/meozbdoy';
 
     try {
       const response = await fetch(formUrl, {
-        method: "POST",
+        method: 'POST',
         body: formData,
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
       });
 
       if (response.ok) {
         setStatus({ success: true, message: 'Message sent successfully!' });
-        event.target.reset(); // Clear the form
+        event.currentTarget.reset();
       } else {
         const errorData = await response.json();
         setStatus({ success: false, message: errorData.error || 'Failed to send message.' });
       }
-    } catch (error) {
+    } catch {
       setStatus({ success: false, message: 'An unexpected error occurred. Please try again.' });
     } finally {
       setIsPending(false);
     }
   };
 
-  // Effect to handle the animation and success modal
+  // Matrix Rain Effect
   useEffect(() => {
-    let animationFrameId;
+    let animationFrameId: number;
 
     if (isPending && canvasRef.current) {
       setShowSubmissionEffect(true);
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/~';
+      const characters =
+        '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/~';
       const fontSize = 16;
       const columns = canvas.width / fontSize;
       const drops = Array(Math.floor(columns)).fill(1);
@@ -159,8 +191,7 @@ const ContactForm = () => {
       cancelAnimationFrame(animationFrameId);
       setShowSubmissionEffect(false);
     }
-    
-    // Clean up on component unmount
+
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPending]);
 
@@ -169,29 +200,30 @@ const ContactForm = () => {
       setShowSuccessModal(true);
       const timeout = setTimeout(() => {
         setShowSuccessModal(false);
-      }, 5000); // Hide after 5 seconds
+      }, 5000);
       return () => clearTimeout(timeout);
     }
   }, [status]);
 
   const handleModalClose = () => {
     setShowSuccessModal(false);
-    setStatus(null); // Clear status on modal close
+    setStatus(null);
   };
 
   return (
     <>
-      {/* The main form, hidden during submission effect */}
       <form
         onSubmit={handleSubmit}
-        className={`${showSubmissionEffect ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} transition-all duration-300`}
+        className={`${
+          showSubmissionEffect ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+        } transition-all duration-300`}
       >
         <Input label="Full name" id="name" name="name" placeholder="Your name here" required />
         <Input
           label="Email address"
           id="email"
           type="email"
-          name="_replyto" // Formspree-specific field name
+          name="_replyto"
           placeholder="Your email address here"
           required
         />
@@ -210,7 +242,6 @@ const ContactForm = () => {
         <Button text="Submit" isPending={isPending} />
       </form>
 
-      {/* Full-screen submission effect */}
       {showSubmissionEffect && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 transition-opacity duration-500">
           <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
@@ -222,7 +253,6 @@ const ContactForm = () => {
         </div>
       )}
 
-      {/* Success Modal */}
       {showSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="bg-black border border-green-500 rounded-lg p-8 shadow-[0_0_20px_rgba(0,255,0,0.5)] text-center relative max-w-sm w-full animate-pop-in">
